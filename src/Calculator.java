@@ -1,39 +1,40 @@
+import java.util.Scanner;
+
+
 /**
  * Created by macbook on 26.07.17.
  */
-import java.util.Scanner;
+
 
 public class Calculator {
-    public static void main(String[] args) {
-        Scanner in = new Scanner(System.in);
+    public static void main(String arg[]) {
+        Oper myCalc = new Oper();
+        Double result = 0.0;
+        do {
+            Scanner calcScan = new Scanner(System.in);
+            System.out.println("Введите пример. Например 2+2");
 
-        double first;
-        double second;
-        String operator;
+            if (calcScan.findInLine("(-?\\d+\\.?\\d*)?\\s*(\\S)\\s*(-?\\d+\\.?\\d*)")
+                    != null) {
 
-        System.out.println("Вас приветствует простейший калькулятор!");
-        System.out.println();
-        System.out.print("Вввдите необходимое действие:");
+                if (calcScan.match().group(1) != null) {
+                    Double first = Double.parseDouble(calcScan.match().group(1));
+                    Double second = Double.parseDouble(calcScan.match().group(3));
+                    result = myCalc.action(first, second, calcScan.match().group(2));
 
-        first = in.nextDouble();
-        operator = in.next();
-        second = in.nextDouble();
+                } else {
+                    Double second = Double.parseDouble(calcScan.match().group(3));
+                    result = myCalc.action(result, second, calcScan.match().group(2));
 
-        if (operator.equals("+")) {
-            System.out.println("Результат суммирования: " + (first + second));
-        }
+                }
+                System.out.println(result);
 
-        if (operator.equals("-")) {
-            System.out.println("Результат вычитания: " + (first - second));
-        }
+            } else {
+                System.out.println("Неверный ввод");
+            }
 
-        if (operator.equals("*")) {
-            System.out.println("Результат умножения: " + (first * second));
-        }
-
-        if (operator.equals("/")) {
-            System.out.println("Результат деления: " + (first / second));
-        }
+        } while (true);
     }
+
 }
 
