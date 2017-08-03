@@ -1,15 +1,13 @@
 import java.util.Scanner;
 
 
-/**
- * Created by macbook on 26.07.17.
- */
 
 
-public class Calculator {
+public class CalculatorRunner extends Calc{
     public static void main(String arg[]) {
         Oper myCalc = new Oper();
         Double result = 0.0;
+
         do {
             Scanner calcScan = new Scanner(System.in);
             System.out.println("Введите пример. Например 2+2");

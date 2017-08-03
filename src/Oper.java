@@ -1,31 +1,21 @@
-/**
- * Created by macbook on 27.07.17.
- */
-public class Oper {
-    public double addition (double x , double y){
-        return x+y;
-    }
-    public double substraction (double x, double y) {
-        return x-y;
-    }
-    public  double division (double x, double y){
-        return x/y;
-    }
-    public double multiplication (double x, double y)
-    {
-        return x*y;
-    }
-    public Double action (double x , double y , String operator) {
+import Operation.Addition;
+import Operation.Division;
+import Operation.Multiplication;
+import Operation.Substraction;
+
+private class Oper {
+
+    private Double action (double x , double y , String operator) {
         switch (operator) {
             case "+":
-                return this.addition(x, y);
+                return Addition.calculationResult();
             case "-":
-                return this.substraction(x, y);
+                return Substraction.calculationResult();
             case "*":
-                return this.multiplication(x, y);
+                return Multiplication.calculationResult();
             case "/":
                 if (y != 0) {
-                    return this.division(x, y);
+                    return Division.calculationResult();
                 } else {
                     System.out.println("Делить на 0 нельзя!");
                 }
