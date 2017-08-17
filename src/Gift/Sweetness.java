@@ -1,22 +1,18 @@
 package Gift;
 
 
-public class Sweetness {
+public abstract class Sweetness {
 
     private String name;
     private int weight;
     private int worth;
-    private String ductility;
 
-    public  Sweetness(){
 
-    }
 
-    public Sweetness(String name, int weight, int worth, String ductility){
+    public Sweetness(String name, int weight, int worth){
         this.name = name;
         this.weight = weight;
         this.worth = worth;
-        this.ductility = ductility;
     }
 
     public String getName() {
@@ -61,12 +57,12 @@ public class Sweetness {
         }
     }
 
-    public String getDuctility() {
-        return ductility;
+    @Override
+    public String toString() {
+        return "Sweetness{" +
+                "name='" + name + '\'' +
+                ", weight=" + weight +
+                ", worth=" + worth +
+                '}';
     }
-
-    public void setDuctility(String ductility) {
-        this.ductility = ductility;
-    }
-
 }
