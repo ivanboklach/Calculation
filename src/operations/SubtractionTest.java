@@ -1,8 +1,7 @@
 package operations;
 
-import org.junit.Assert;
-import org.junit.Test;
 
+import org.junit.Test;
 import static org.junit.Assert.*;
 
 /**
@@ -14,8 +13,8 @@ public class SubtractionTest {
         double a = 12.0;
         double b = 2.0;
         double expResult = 10.0;
-        double result = a - b;
-        Assert.assertEquals(expResult, result);
+        double result = Addition.getCalculationResult(a, b);
+        assertEquals(expResult, result);
     }
 
-}
+}O
