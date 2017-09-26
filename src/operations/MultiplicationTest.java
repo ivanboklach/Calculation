@@ -14,7 +14,7 @@ public class MultiplicationTest {
         double a = 5.0;
         double b = 2.0;
         double expResult = 10.0;
-        double result = a * b;
+        double result = Multiplication.getCalculationResult(a, b)
         Assert.assertEquals(expResult, result);
     }
 

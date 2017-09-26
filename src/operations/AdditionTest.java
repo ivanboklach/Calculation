@@ -14,7 +14,7 @@ public class AdditionTest {
         double a = 5.0;
         double b = 2.0;
         double expResult = 7.0;
-        double result = a + b;
+        double result = Addition.getCalculationResult(a, b);
         Assert.assertEquals(expResult, result);
     }
 

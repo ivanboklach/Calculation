@@ -14,7 +14,7 @@ public class DivisionTest {
         double a = 6.0;
         double b = 2.0;
         double expResult = 3.0;
-        double result = a / b;
+        double result = Division.getCalculationResult(a, b)
         Assert.assertEquals(expResult, result);
     }
 

@@ -13,7 +13,7 @@ public class SubtractionTest {
         double a = 12.0;
         double b = 2.0;
         double expResult = 10.0;
-        double result = Addition.getCalculationResult(a, b);
+        double result = Subtraction.getCalculationResult(a, b);
         assertEquals(expResult, result);
     }
 
