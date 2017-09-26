@@ -1,39 +1,36 @@
 /**
  * Created by macbook on 26.07.17.
  */
-import java.util.Scanner;
+import java.io.IOException;
+
 
 public class Calculator {
-    public static void main(String[] args) {
-        Scanner in = new Scanner(System.in);
 
-        double first;
-        double second;
-        String operator;
+    public static void main(String[] args) throws IOException {
+        do {
+            String[] expressionArgs = readOperation();
+            Double result = new Operations().getResultNumber(expressionArgs);
+            if (result != null) System.out.println(result);
 
-        System.out.println("Вас приветствует простейший калькулятор!");
-        System.out.println();
-        System.out.print("Вввдите необходимое действие:");
+        } while (repeat());
+        new Console().console().close();
+    }
 
-        first = in.nextDouble();
-        operator = in.next();
-        second = in.nextDouble();
+    static String[] readOperation() throws IOException {
+        System.out.print("Введите ваш пример через пробел: ");
+        String expression = read();
+        return expression.split("\\s+");
+    }
 
-        if (operator.equals("+")) {
-            System.out.println("Результат суммирования: " + (first + second));
-        }
+    static boolean repeat() throws IOException {
+        System.out.println("Продолжить работу? ( да / нет )");
+        String nextOperation = read();
+        return ("да").equals(nextOperation);
+    }
 
-        if (operator.equals("-")) {
-            System.out.println("Результат вычитания: " + (first - second));
-        }
-
-        if (operator.equals("*")) {
-            System.out.println("Результат умножения: " + (first * second));
-        }
-
-        if (operator.equals("/")) {
-            System.out.println("Результат деления: " + (first / second));
-        }
+    private static String read() throws IOException {
+        return new Console().console().readLine();
     }
 }
+
 
